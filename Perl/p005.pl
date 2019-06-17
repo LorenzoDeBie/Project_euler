@@ -5,7 +5,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 =end Problem
 =cut
 
-@numbers = 1..20;
+@numbers = 3..20;
 
 $num = 2520;
 while(1) {
