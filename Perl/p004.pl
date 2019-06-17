@@ -8,28 +8,17 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 $num1 = 999; $num2 = 999;
 
-while($num2 != 0) {
-    $num1 = 999;
-    while($num1 != 0) {
+for $num2 (100..999) {
+    for $num1 (100..999) {
         # Calculate new number
         my $possiblePalindrome = $num1 * $num2;
         # Split into array of characters
         my @charArr = split "",$possiblePalindrome;
         # Test number for palindrome
-        while($charArr[0] == $charArr[-1] && scalar @charArr) {
-            # remove last char
-            pop @charArr;
-            #remove first char
-            shift @charArr;
-            
+        if($possiblePalindrome == reverse $possiblePalindrome) {
+             $palindromes{$possiblePalindrome} = undef;
         }
-        if(!(scalar @charArr)) {
-            # We have a palindrome!
-            $palindromes{$possiblePalindrome} = undef;
-        }
-        $num1--;
     }
-    $num2--;
 }
 
 @arr = keys %palindromes;
