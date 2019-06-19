@@ -47,7 +47,17 @@ $number = "73167176531330624919225119674426574742355349194934
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450";
 
-$number =~ s/\n//;
-@number = split m/(\d)/,$number;
+# remove all newlines
+$number =~ s/\n//g;
+@number_arr = split m//,$number;
+$max = 0;
+for $index (0..($#number_arr - 13)) {
+    my @current = @number_arr[$index..($index + 12)];
+    my $product = 1;
+    for (@current) {
+        $product *= $_;
+    }
+    $max = $product if $product > $max;
+}
 
-print join " ",@number;
+print $max;
