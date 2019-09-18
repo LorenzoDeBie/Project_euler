@@ -5,7 +5,10 @@ How many such routes are there through a 20×20 grid?
 =end Problem
 =cut
 
-#this problem can be solved
+# this problem can be solved by creating a matrix of 21x21
+# first row and column are only 1
+# other numbers are the sum of number above and to the left
+# solution is the bottom right number of the matrix
 push @firstrow, "1" for(0..20);
 print "row 0: ", (join " ", @firstrow), "\n";
 push my @matrix, \@firstrow;
